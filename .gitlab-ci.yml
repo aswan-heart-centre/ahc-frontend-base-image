@@ -1,0 +1,49 @@
+image: docker:git
+ 
+services:
+- docker:dind
+ 
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+  FRONTEND_IMAGE: $CI_REGISTRY_IMAGE/ahc-frontend-base-image:$CI_COMMIT_SHORT_SHA
+  FRONTEND_DIR: frontend-image
+ 
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY 
+
+stages:
+  - build
+  - push
+
+
+# ------- Build -------
+
+build:
+  stage: build
+  only:
+    - merge_requests
+    - dev
+    - master  
+  script:
+    - docker build -t $FRONTEND_IMAGE .
+    - mkdir $FRONTEND_DIR
+    - docker save $FRONTEND_IMAGE > $FRONTEND_DIR/image.tar
+  artifacts:
+    paths:
+      - $FRONTEND_DIR
+    expire_in: 30 days
+
+
+# ------- Push Docker Image -------
+
+push:
+  stage: push
+  only:
+    - dev
+    - master
+  script:
+    - docker load -i $FRONTEND_DIR/image.tar
+    - docker push $FRONTEND_IMAGE
+  dependencies:
+    - build

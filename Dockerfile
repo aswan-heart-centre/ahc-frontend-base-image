@@ -1,4 +1,4 @@
-FROM node:11
+FROM node:11-slim
 
 RUN npm install -g @angular/cli@7.3.6
 
