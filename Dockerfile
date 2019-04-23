@@ -1,15 +1,11 @@
-FROM node:10-alpine AS base
+FROM node:11
 
-COPY package.json package-lock.json ./
+RUN npm install -g @angular/cli@7.3.6
 
-RUN npm install
-
-RUN mkdir frontend
-
-RUN mv node_modules frontend
+RUN mkdir /frontend
 
 WORKDIR /frontend
 
 COPY package.json package-lock.json ./
 
-RUN npm install -g @angular/cli@7.3.6
+RUN npm install
