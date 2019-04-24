@@ -9,3 +9,5 @@ WORKDIR /frontend
 COPY package.json package-lock.json ./
 
 RUN npm install
+
+EXPOSE 4200 49153
