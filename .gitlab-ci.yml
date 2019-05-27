@@ -23,7 +23,7 @@ build:
   stage: build
   only:
     - merge_requests
-    - develop
+    - dev
     - master  
   script:
     - docker build -t $IMAGE .
@@ -40,7 +40,7 @@ build:
 push:
   stage: push
   only:
-    - develop
+    - dev
     - master
   script:
     - docker load -i $DIR/image.tar
