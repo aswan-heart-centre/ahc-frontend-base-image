@@ -10,8 +10,6 @@ COPY package.json package-lock.json ./
 
 RUN npm ci
 
-RUN npm install jspdf html2canvas --save
-
-RUN npm install -g @angular/cli@7.3.6
+RUN npm install -g @angular/cli@8.0.2
 
 EXPOSE 4200 49153 8080
