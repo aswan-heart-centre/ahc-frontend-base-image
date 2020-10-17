@@ -1,4 +1,4 @@
-FROM node:11-slim
+FROM node:14-slim
 
 RUN mkdir -p /frontend
 
@@ -10,6 +10,6 @@ COPY package.json package-lock.json ./
 
 RUN npm ci
 
-RUN npm install -g @angular/cli@8.0.2
+RUN npm install -g @angular/cli@10.1.7
 
 EXPOSE 4200 49153 8080
