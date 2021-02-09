@@ -15,7 +15,7 @@
     "pre-start:development": "echo 'starting'",
     "pre-start:production": "npm run build:prod",
     "start:development": "ng serve --host 0.0.0.0 --port $HMR_PORT  --poll 1000 --disableHostCheck --sourceMap=false",
-    "start:production": "npm run build:prod",
+    "start:production": "echo 'done'",
     "build": "ng build",
     "build:prod:low-mem": "npm run build -- --prod --aot",
     "build:prod": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --prod --aot",
