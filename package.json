@@ -11,7 +11,7 @@
     "start": "per-env",
     "ci-test": "npm run test",
     "conventional-changelog": "conventional-changelog",
-    "pre-start": "pre-env",
+    "pre-start": "per-env",
     "pre-start:development": "echo 'starting'",
     "pre-start:production": "npm run build:prod",
     "start:development": "ng serve --host 0.0.0.0 --port $HMR_PORT  --poll 1000 --disableHostCheck --sourceMap=false",
