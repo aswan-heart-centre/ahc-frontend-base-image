@@ -10,6 +10,6 @@ COPY package.json package-lock.json ./
 
 RUN npm ci
 
-RUN npm install -g @angular/cli@10.1.7
+RUN npm install -g @angular/cli@12.1.3
 
 EXPOSE 4200 49153 8080
