@@ -4,7 +4,7 @@ RUN mkdir -p /frontend
 
 WORKDIR /frontend
 
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -y git python
 
 COPY package.json package-lock.json ./
 
