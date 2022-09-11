@@ -17,7 +17,6 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            aswan-heart-centre/ahc-frontend-base-image
             ghcr.io/aswan-heart-centre/ahc-frontend-base-image
           tags: |
             type=schedule
