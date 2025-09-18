@@ -5,8 +5,6 @@ RUN mkdir -p /frontend
 WORKDIR /frontend
 
 RUN apt-get update && apt-get install -y \
-    git \
-    python \
     libgtk2.0-0 \
     libgtk-3-0 \
     libgbm-dev \
